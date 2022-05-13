@@ -35,11 +35,12 @@ public class dreams : MonoBehaviour
     IEnumerator Dream()
     {
         rodzajSnu = Random.Range(1, 3);
-        if (rodzajSnu == 1)
+        switch (rodzajSnu)
         {
-            createGoodDream();
-        } else {
-            createBadDream();
+            case 1: createGoodDream();
+                break;
+            case 2: createGoodDream();
+                break;
         }
         yield return new WaitForSeconds(3);
         StartCoroutine(Dream());
