@@ -55,13 +55,24 @@ public class dreams : MonoBehaviour
 
     private void createGoodDream()
     {
-        Instantiate(sen_good, transform.position, transform.rotation);
+        Instantiate(sen_good, randomPosition(), transform.rotation);
         Debug.Log("dobre spanko");
     }
 
     private void createBadDream()
     {
-        Instantiate(sen_bad, transform.position, transform.rotation);
+        Instantiate(sen_bad, randomPosition(), transform.rotation);
         Debug.Log("zle spanko");
     }
+
+
+    private Vector3 randomPosition()
+    {
+        float x = Random.Range(-2, 2);
+        float y = 2;
+        float z = Random.Range(-2, 2);
+        return new Vector3(x, y, z);
+    }
+    
+    
 }
