@@ -23,7 +23,7 @@ public class dreams : MonoBehaviour
         rodzajSnu = Random.Range(1, 2);
         StartCoroutine(Dream());
         jakosc_snu = 1;
-        sen = 50;
+        sen = 100;
     }
 
     // Update is called once per frame
@@ -34,18 +34,13 @@ public class dreams : MonoBehaviour
 
     IEnumerator Dream()
     {
+        rodzajSnu = Random.Range(1, 3);
         if (rodzajSnu == 1)
         {
-            Instantiate(sen_good, transform.position, transform.rotation);
-            Debug.Log("dobre spanko");
+            createGoodDream();
+        } else {
+            createBadDream();
         }
-        if (rodzajSnu == 2)
-        {
-            Instantiate(sen_bad, transform.position, transform.rotation);
-            Debug.Log("zle spanko");
-        }
-        rodzajSnu = Random.Range(1, 3);
-
         yield return new WaitForSeconds(3);
         StartCoroutine(Dream());
     }
@@ -55,5 +50,17 @@ public class dreams : MonoBehaviour
         yield return new WaitForSeconds(1);
         sen += 1;
         StartCoroutine(DreamPointsFixes());
+    }
+
+    private void createGoodDream()
+    {
+        Instantiate(sen_good, transform.position, transform.rotation);
+        Debug.Log("dobre spanko");
+    }
+
+    private void createBadDream()
+    {
+        Instantiate(sen_bad, transform.position, transform.rotation);
+        Debug.Log("zle spanko");
     }
 }
