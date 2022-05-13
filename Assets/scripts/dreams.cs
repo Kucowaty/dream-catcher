@@ -39,7 +39,7 @@ public class dreams : MonoBehaviour
         {
             case 1: createGoodDream();
                 break;
-            case 2: createGoodDream();
+            case 2: createBadDream();
                 break;
         }
         yield return new WaitForSeconds(3);
