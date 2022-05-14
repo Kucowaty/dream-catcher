@@ -40,7 +40,7 @@ public class badDream : MonoBehaviour
             bark1.Play();
         }
 
-        spanie.sen -= 1;
+        spanie .sen -= 1;
         Debug.Log("budzenie");
         yield return new WaitForSeconds(Random.Range(2,5));
         
