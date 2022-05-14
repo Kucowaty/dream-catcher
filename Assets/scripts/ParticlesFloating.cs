@@ -12,7 +12,14 @@ namespace DefaultNamespace
         private Vector3 newPosition;
         private void Update()
         {
-            
+            UpdatePosition();
+            var material = GetComponent<Renderer>().material;
+            material.SetColor("_EmissionColor", new Color(Random.value,Random.value,1.0f,1.0f) * Random.value);
+
+        }
+
+        private void UpdatePosition()
+        {
             timer += Time.deltaTime;
             if (timer > timeToMove)
             {
@@ -20,8 +27,7 @@ namespace DefaultNamespace
                 timer = 0;
             }
 
-            transform.position = Vector3.Lerp(transform.position, newPosition, speed );
+            transform.position = Vector3.Lerp(transform.position, newPosition, speed);
         }
-
     }
 }
