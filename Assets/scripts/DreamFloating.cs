@@ -16,7 +16,7 @@ namespace DefaultNamespace
             timer += Time.deltaTime;
             if (timer > timeToMove)
             {
-                newPosition = PositionRandomizer.RandomPointInBounds();
+                newPosition = PositionRandomizer.RandomPointInBounds("DreamZone");
                 timer = 0;
             }
 
