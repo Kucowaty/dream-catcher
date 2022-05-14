@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class dreams : MonoBehaviour
 {
     public GameObject sen_good;
+
+    public GameObject restart;
     //public GameObject sen_mid;
     public GameObject sen_bad;
 
@@ -15,6 +17,10 @@ public class dreams : MonoBehaviour
 
     public int jakosc_snu;
     public int rodzajSnu;
+
+    //counter of sheeps
+    public int sheeeepies;
+
 
     public Text spanko;
 
@@ -26,6 +32,7 @@ public class dreams : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        restart.SetActive(false);
         gamestatus = true;
         rodzajSnu = Random.Range(1, 2);
         StartCoroutine(Dream());
@@ -40,8 +47,9 @@ public class dreams : MonoBehaviour
         slider.value = sen;
         if(sen <= 0)
         {
+            restart.SetActive(true);
             gamestatus = false;
-            Debug.Log("End GAME");
+           // Debug.Log("End GAME");
         }
     }
 

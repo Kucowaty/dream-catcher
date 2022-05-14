@@ -29,7 +29,7 @@ public class badDream : MonoBehaviour
 
     IEnumerator Budzik()
     {
-        barkin = Random.Range(1, 3);
+        barkin = Random.Range(1, 4);
         if(barkin == 1)
         {
             bark.Play();
@@ -41,10 +41,14 @@ public class badDream : MonoBehaviour
         }
 
         spanie .sen -= 1;
-        Debug.Log("budzenie");
+        //Debug.Log("budzenie");
         yield return new WaitForSeconds(Random.Range(2,5));
         
-        StartCoroutine(Budzik());
+        if(spanie.gamestatus == true)
+        {
+            StartCoroutine(Budzik());
+        }
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -52,14 +56,10 @@ public class badDream : MonoBehaviour
         if (other.gameObject.layer == 14)
         {
             popSound.Play();
-            Destroy(gameObject, 0.5f);
+            Destroy(this);
         }
 
-        if(other.gameObject.layer == 8)
-        {
-            //popSound.Play(0);
-            Destroy(gameObject);
-        }
+        
     }
 
     public void Remover()
