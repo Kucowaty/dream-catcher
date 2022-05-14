@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Versioning;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,7 +70,7 @@ public class dreams : MonoBehaviour
     {
         if (gamestatus == true)
         {
-            Instantiate(sen_good, randomPosition(), transform.rotation);
+            Instantiate(sen_good, PositionRandomizer.RandomPointInBounds("DreamZone"), transform.rotation);
             Debug.Log("dobre spanko");
         }
     }
@@ -77,19 +79,11 @@ public class dreams : MonoBehaviour
     {
         if (gamestatus == true)
         {
-            Instantiate(sen_bad, randomPosition(), transform.rotation);
+            Instantiate(sen_bad, PositionRandomizer.RandomPointInBounds("DreamZone"), transform.rotation);
             Debug.Log("zle spanko");
         }
     }
 
-
-    private Vector3 randomPosition()
-    {
-        float x = Random.Range(-2, 2);
-        float y = 2;
-        float z = Random.Range(-2, 2);
-        return new Vector3(x, y, z);
-    }
 
     public void SetSleep(int sen)
     {
