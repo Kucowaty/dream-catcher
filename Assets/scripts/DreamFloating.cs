@@ -23,5 +23,18 @@ namespace DefaultNamespace
             transform.position = Vector3.Lerp(transform.position, newPosition, speed );
         }
 
+        
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == 9)
+            {
+                Destroy(this);
+            }
+        }
+
     }
+
+
+
 }
