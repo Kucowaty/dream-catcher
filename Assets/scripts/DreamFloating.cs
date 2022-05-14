@@ -9,12 +9,14 @@ namespace DefaultNamespace
         private float speed = 0.005F;
         private Vector3 newPosition;
 
+
         private void Update()
         {
+            
             timer += Time.deltaTime;
             if (timer > timeToMove)
             {
-                newPosition = RandomPosition();
+                newPosition = RandomPointInBounds();
                 timer = 0;
             }
 
@@ -29,6 +31,15 @@ namespace DefaultNamespace
             return new Vector3(x, y, z);
         }
 
+        public static Vector3 RandomPointInBounds() {
+            GameObject gameObject = GameObject.Find("DreamZone");
+            Bounds bounds = gameObject.GetComponent<Collider>().bounds;
+            return new Vector3(
+                Random.Range(bounds.min.x, bounds.max.x),
+                Random.Range(bounds.min.y, bounds.max.y),
+                Random.Range(bounds.min.z, bounds.max.z)
+            );
+        }
 
     }
 }
