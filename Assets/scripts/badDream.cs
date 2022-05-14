@@ -33,5 +33,10 @@ public class badDream : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(other.gameObject.layer == 8)
+        {
+            Destroy(gameObject);
+        }
     }
 }

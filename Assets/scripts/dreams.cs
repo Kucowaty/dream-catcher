@@ -9,6 +9,8 @@ public class dreams : MonoBehaviour
     //public GameObject sen_mid;
     public GameObject sen_bad;
 
+    public Slider slider;
+
     public int jakosc_snu;
     public int rodzajSnu;
 
@@ -17,9 +19,12 @@ public class dreams : MonoBehaviour
     public int sen;
 
     public bool stage1;
+
+    public bool gamestatus;
     // Start is called before the first frame update
     void Start()
     {
+        gamestatus = true;
         rodzajSnu = Random.Range(1, 2);
         StartCoroutine(Dream());
         jakosc_snu = 1;
@@ -30,6 +35,12 @@ public class dreams : MonoBehaviour
     void Update()
     {
         spanko.text = sen.ToString();
+        slider.value = sen;
+        if(sen <= 0)
+        {
+            gamestatus = false;
+            Debug.Log("End GAME");
+        }
     }
 
     IEnumerator Dream()
@@ -55,14 +66,20 @@ public class dreams : MonoBehaviour
 
     private void createGoodDream()
     {
-        Instantiate(sen_good, randomPosition(), transform.rotation);
-        Debug.Log("dobre spanko");
+        if (gamestatus == true)
+        {
+            Instantiate(sen_good, randomPosition(), transform.rotation);
+            Debug.Log("dobre spanko");
+        }
     }
 
     private void createBadDream()
     {
-        Instantiate(sen_bad, randomPosition(), transform.rotation);
-        Debug.Log("zle spanko");
+        if (gamestatus == true)
+        {
+            Instantiate(sen_bad, randomPosition(), transform.rotation);
+            Debug.Log("zle spanko");
+        }
     }
 
 
@@ -72,6 +89,11 @@ public class dreams : MonoBehaviour
         float y = 2;
         float z = Random.Range(-2, 2);
         return new Vector3(x, y, z);
+    }
+
+    public void SetSleep(int sen)
+    {
+        slider.value = sen;
     }
     
     
