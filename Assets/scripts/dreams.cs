@@ -33,7 +33,7 @@ public class dreams : MonoBehaviour
     void Start()
     {
         restart.SetActive(false);
-        gamestatus = true;
+        gamestatus = false;
         rodzajSnu = Random.Range(1, 2);
         StartCoroutine(Dream());
         jakosc_snu = 1;

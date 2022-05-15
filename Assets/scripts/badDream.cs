@@ -42,7 +42,7 @@ public class badDream : MonoBehaviour
 
         spanie .sen -= 1;
         //Debug.Log("budzenie");
-        yield return new WaitForSeconds(Random.Range(2,5));
+        yield return new WaitForSeconds(Random.Range(3,7));
         
         if(spanie.gamestatus == true)
         {

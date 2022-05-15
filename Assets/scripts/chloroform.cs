@@ -23,6 +23,7 @@ public class chloroform : MonoBehaviour
         if(other.gameObject.layer == 15)
         {
             chlor.sen = 100;
+            chlor.gamestatus = true;
             Destroy(this);
         }
     }

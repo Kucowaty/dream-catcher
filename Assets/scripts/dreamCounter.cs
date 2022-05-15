@@ -29,7 +29,7 @@ public class dreamCounter : MonoBehaviour
             owca.sen += 10;
             beee.Play();
             Debug.Log("OWWWWCCCCAAAA");
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject, 0.5f);
             Destroy(this);
         }
     }
